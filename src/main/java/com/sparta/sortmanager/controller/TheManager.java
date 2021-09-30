@@ -7,11 +7,12 @@ import com.sparta.sortmanager.view.UserInstructions;
 
 import java.util.Scanner;
 
-public class InputManager {
+public class TheManager {
 
     public static void intializer() {
         String choice = null;
         UserInstructions.welcomeMessage();
+        InputHandler theInputHandler = new InputHandler();
 
         while (choice != "x") {
             int length;
@@ -19,7 +20,7 @@ public class InputManager {
             UserInstructions.sortChoiceMessage();
 
             Scanner scan = new Scanner(System.in);
-            choice = scan.next();
+            choice = theInputHandler.checkInputChoice(scan.next());
 
 
             if (choice.equals("x")) {
@@ -28,7 +29,7 @@ public class InputManager {
             }
             else {
                 UserInstructions.lengthChoiceMessage();
-                length = Integer.parseInt(scan.next());
+                length = theInputHandler.checkInputLength(Integer.parseInt(scan.next()));
                 Sortable theSort = null;
                 MyTimer sortTimer = new MyTimer();
                 long runTime;
@@ -50,4 +51,5 @@ public class InputManager {
             }
         }
     }
+
 }

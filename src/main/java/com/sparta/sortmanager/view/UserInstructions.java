@@ -18,7 +18,7 @@ public class UserInstructions {
     }
 
     public static void lengthChoiceMessage(){
-        System.out.println("Enter the a length for the array.");
+        System.out.println("Please enter an integer length for the array.");
     }
 
     public static void returnToStartMessage(){

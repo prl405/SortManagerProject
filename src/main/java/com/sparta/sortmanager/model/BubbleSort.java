@@ -18,11 +18,7 @@ public class BubbleSort implements Sortable {
         }
         return arry;
     }
-//
-//    @Override
-//    public Sorts getSort() {
-//        return new BubbleSort();
-//    }
+
 
     @Override
     public int[] runSort(int[] arry) {
