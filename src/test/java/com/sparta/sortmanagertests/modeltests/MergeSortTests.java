@@ -1,19 +1,15 @@
 package com.sparta.sortmanagertests.modeltests;
 
 import com.sparta.sortmanager.controller.Sortable;
-import com.sparta.sortmanager.model.BubbleSort;
+import com.sparta.sortmanager.model.MergeSort;
 import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
-public class BubbleSortTests extends TestArrays {
-    private Sortable testSort = new BubbleSort();
-//    private TestArrays testCases = new TestArrays();
-
-
+public class MergeSortTests extends TestArrays {
+    private Sortable testSort = new MergeSort();
 
     @Test
     public void givenTestArray1_ReturnSortedArray1(){
@@ -65,8 +61,4 @@ public class BubbleSortTests extends TestArrays {
     public void givenTestArray1000_ReturnSortedArray1000b(){
         assertArrayEquals(sortedTestArray1000b, testSort.runSort(testArray1000b));
     }
-
-
-
-
 }

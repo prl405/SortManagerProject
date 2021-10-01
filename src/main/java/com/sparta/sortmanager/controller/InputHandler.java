@@ -10,6 +10,11 @@ public class InputHandler {
     private String[] possibleOperationInputs = {"x", "q", "b", "m"};
 //    private Scanner exceptionScan = new Scanner();
 
+//    public String getUserInput(String int){
+////        Scanner scan = new Scanner();
+//
+//    }
+
     public String checkInputChoice(String choice){
         boolean isAOperation = false;
         for (String i : possibleOperationInputs) {

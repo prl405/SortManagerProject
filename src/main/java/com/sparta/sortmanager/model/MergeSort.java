@@ -14,7 +14,7 @@ public class MergeSort implements Sortable {
 
         int[] firstHalf = Arrays.copyOfRange(A, 0, len / 2);
         int[] secondHalf = Arrays.copyOfRange(A, len / 2, len);
-        if (len == 1) {
+        if (len <= 1) {
             return A;
         } else {
             X = merge(firstHalf);
