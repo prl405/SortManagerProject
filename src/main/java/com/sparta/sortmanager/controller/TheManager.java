@@ -27,6 +27,13 @@ public class TheManager {
         while (choice != "x") {
             boolean invalidChoice = true;
             Scanner scan = new Scanner(System.in);
+            Integer length = null;
+            Sortable theSort = null;
+
+            boolean invalidLength = true;
+            int[] arrayUnsorted;
+            int[] arrayUnsorted2;
+            int[] arraySorted;
 
 
             UserPrompts.sortChoiceMessage();
@@ -42,11 +49,8 @@ public class TheManager {
                 break;
             }
             else {
-                Integer length = null;
-                Sortable theSort = null;
                 MyTimer sortTimer = new MyTimer();
                 long runTime;
-                boolean invalidLength = true;
 
                 UserPrompts.lengthChoiceMessage();
                 while (invalidLength){ // Exception Handling
@@ -55,13 +59,14 @@ public class TheManager {
                     invalidLength = theInputHandler.checkInputLength(length);
                 }
 
-                int[] arrayUnsorted = ArrayGenerator.generateRandomArray(length);
+                arrayUnsorted = ArrayGenerator.generateRandomArray(length);
+                arrayUnsorted2 = arrayUnsorted.clone();
                 sortTimer.startTimer();
                 theSort = SortFactory.getSortable(choice);
                 runTime = sortTimer.endTimer();
+                arraySorted = theSort.runSort(arrayUnsorted);
+                UserPrompts.displayUnstoredToSorted(arrayUnsorted2, arraySorted);
                 UserPrompts.displaySortRuntime(runTime);
-                int[] arraySorted = theSort.runSort(arrayUnsorted);
-                ArrayPrinter.print(arraySorted);
             }
 
             UserPrompts.returnToStartMessage();

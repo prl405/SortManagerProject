@@ -30,4 +30,11 @@ public class UserPrompts {
     public static void displaySortRuntime(long runtime){
         System.out.println("Algorithm runtime: " + Long.toString(runtime));
     }
+
+    public static void displayUnstoredToSorted(int[] unsortedArray, int[] sortedArray){
+        System.out.println("Unsorted Array:");
+        ArrayPrinter.print(unsortedArray);
+        System.out.println("Sorted Array:");
+        ArrayPrinter.print(sortedArray);
+    }
 }
