@@ -44,7 +44,7 @@
  #### Algorithm Timer
  Measures the running time of the called sort method and displays the time taken to sort. The time is measured in nano-seconds.
 
- (Currently the first call of a particular sort takes significantly longer when compared to subsequent calls.)
+ (Currently the first call of a particular sort takes significantly longer when compared to subsequent calls of the same sort.)
 
  ### Design Components
  A brief mention of the design principles that were followed.
