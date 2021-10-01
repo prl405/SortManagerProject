@@ -5,6 +5,11 @@
  A command terminal app that allows the user to select an sorting method to sort a random integer array of the user's specified length.
 
  ### User Instructions
+ 1.Enter a character from the shown prompt in the terminal to select a sorting algorithm or exit the program, then press enter.
+
+ 2.Select an integer array length, then press enter.
+
+ 3.After the results show of the completed sort, select the appropriate option to either sort another array or exit the program.
 
  ### Project Components
  A brief description of the functionality currently available in the program.
@@ -28,7 +33,7 @@
  Worst case performance: O(nlog(n))
 
  #### Logger
- The logger logs the program's events during runtime using log4j.
+ The logger logs the program's events during runtime using log4j and stores them in the app.log file.
 
  #### Unit Tests
  The unit tests focus on testing the sorting methods by running random integer arrays with their known sorted array counter parts. This was done using junit.
@@ -37,10 +42,17 @@
  Used to check that the user inputted valid characters and array lengths. Many of the exceptions are picked up by the Java language.
 
  #### Algorithm Timer
+ Measures the running time of the called sort method and displays the time taken to sort. The time is measured in nano-seconds.
+
+ (Currently the first call of a particular sort takes significantly longer when compared to subsequent calls.)
 
  ### Design Components
+ A brief mention of the design principles that were followed.
  #### OOP
  #### SOLID
  #### Design Patterns
  ###### Factory Method
+ An interface was implemented, called 'Sortable', that instantiated the sorting classes into the 'SortFactory'.
+
  ###### Model-View-Controller (MVC)
+ The program is separated into three main packages which contain their respective classes that correspond to the MVC design pattern.
