@@ -1,9 +1,5 @@
 package com.sparta.sortmanager.controller;
 
-import com.sparta.sortmanager.view.UserInstructions;
-
-import java.util.Scanner;
-
 
 public class InputHandler {
 
@@ -15,35 +11,41 @@ public class InputHandler {
 //
 //    }
 
-    public String checkInputChoice(String choice){
-        boolean isAOperation = false;
+    public boolean checkInputChoice(String choice){
+        boolean isNotAnOperation = true;
         for (String i : possibleOperationInputs) {
             if (i.equals(choice)) {
-                isAOperation = true;
+                isNotAnOperation = false;
             }
         }
         try {
-            if(!isAOperation){
+            if(isNotAnOperation){
                 throw new IllegalArgumentException("Input is not recognisable.");
             }
         }
         catch (IllegalArgumentException ia){
-            ia.getMessage();
-            System.out.println("Input is not recognisable. Enter a character from the selection.");
+//            ia.getMessage();
+            System.out.println("Input is not recognisable. Please enter a character from the selection.");
         }
-        return choice;
+        finally {
+            return isNotAnOperation;
+        }
     }
 
-    public int checkInputLength(int arrayLength){
+    public boolean checkInputLength(int arrayLength){
+        boolean isNotValidLength = false;
         try{
             if (arrayLength <= 0){
                 throw new IllegalArgumentException("Invalid array length.");
             }
         }
         catch (IllegalArgumentException ia){
+            isNotValidLength = true;
             ia.getMessage();
-            System.out.println("Invalid array length. Enter a value greater than 1.");
+            System.out.println("Invalid array length. Please enter a value greater than 1.");
         }
-        return arrayLength;
+        finally {
+            return isNotValidLength;
+        }
     }
 }

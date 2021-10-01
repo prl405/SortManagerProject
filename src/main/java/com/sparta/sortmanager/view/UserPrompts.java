@@ -1,6 +1,6 @@
 package com.sparta.sortmanager.view;
 
-public class UserInstructions {
+public class UserPrompts {
     public static void welcomeMessage(){
         System.out.println("This is a program that sorts a random array of integers of your chosen length.");
     }

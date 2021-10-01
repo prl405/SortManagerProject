@@ -3,7 +3,7 @@ package com.sparta.sortmanager.controller;
 import com.sparta.sortmanager.model.MyTimer;
 import com.sparta.sortmanager.model.SortFactory;
 import com.sparta.sortmanager.view.ArrayPrinter;
-import com.sparta.sortmanager.view.UserInstructions;
+import com.sparta.sortmanager.view.UserPrompts;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -15,7 +15,8 @@ public class TheManager {
 
     public static void initializer() {
         String choice = null;
-        UserInstructions.welcomeMessage();
+
+        UserPrompts.welcomeMessage();
         InputHandler theInputHandler = new InputHandler();
         Logger logger = Logger.getLogger("SortManager Log: ");
         PropertyConfigurator.configure("log4j.properties");
@@ -24,41 +25,51 @@ public class TheManager {
 
 
         while (choice != "x") {
-            int length;
-
-            UserInstructions.sortChoiceMessage();
-
+            boolean invalidChoice = true;
             Scanner scan = new Scanner(System.in);
-            choice = theInputHandler.checkInputChoice(scan.next());
-            logger.info("User Input = " + choice);
 
+
+            UserPrompts.sortChoiceMessage();
+            while (invalidChoice){ // Exception Handling
+                choice = scan.next();
+                logger.info("User Input = " + choice);
+                invalidChoice = theInputHandler.checkInputChoice(choice);
+            }
 
             if (choice.equals("x")) {
-                UserInstructions.programExitingMessage();
+                UserPrompts.programExitingMessage();
+                logger.info("Program Terminated");
                 break;
             }
             else {
-                UserInstructions.lengthChoiceMessage();
-                length = theInputHandler.checkInputLength(Integer.parseInt(scan.next()));
-                logger.info("User Input = " + Integer.toString(length));
+                Integer length = null;
                 Sortable theSort = null;
                 MyTimer sortTimer = new MyTimer();
                 long runTime;
+                boolean invalidLength = true;
+
+                UserPrompts.lengthChoiceMessage();
+                while (invalidLength){ // Exception Handling
+                    length = Integer.parseInt(scan.next());
+                    logger.info("User Input = " + Integer.toString(length));
+                    invalidLength = theInputHandler.checkInputLength(length);
+                }
 
                 int[] arrayUnsorted = ArrayGenerator.generateRandomArray(length);
                 sortTimer.startTimer();
                 theSort = SortFactory.getSortable(choice);
                 runTime = sortTimer.endTimer();
-                UserInstructions.displaySortRuntime(runTime);
+                UserPrompts.displaySortRuntime(runTime);
                 int[] arraySorted = theSort.runSort(arrayUnsorted);
                 ArrayPrinter.print(arraySorted);
             }
 
-            UserInstructions.returnToStartMessage();
+            UserPrompts.returnToStartMessage();
             choice = scan.next();
             logger.info("User Input = " + choice);
             if (choice.equals("x")) {
-                UserInstructions.programExitingMessage();
+                UserPrompts.programExitingMessage();
+                logger.info("Program Terminated");
                 break;
             }
         }
