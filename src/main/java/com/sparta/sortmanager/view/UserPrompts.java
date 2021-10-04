@@ -10,6 +10,7 @@ public class UserPrompts {
         System.out.println("Bubble sort : b");
         System.out.println("Merge sort : m");
         System.out.println("Quick sort: q");
+        System.out.println("Binary Tree sort : bin");
         System.out.println("To exit: x");
     }
 

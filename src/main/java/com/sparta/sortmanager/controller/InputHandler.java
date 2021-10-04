@@ -3,13 +3,7 @@ package com.sparta.sortmanager.controller;
 
 public class InputHandler {
 
-    private String[] possibleOperationInputs = {"x", "q", "b", "m"};
-//    private Scanner exceptionScan = new Scanner();
-
-//    public String getUserInput(String int){
-////        Scanner scan = new Scanner();
-//
-//    }
+    private String[] possibleOperationInputs = {"x", "q", "b", "m", "bin"};
 
     public boolean checkInputChoice(String choice){
         boolean isNotAnOperation = true;

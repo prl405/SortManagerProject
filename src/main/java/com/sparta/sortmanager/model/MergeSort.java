@@ -57,11 +57,6 @@ public class MergeSort implements Sortable {
         }
         return D;
     }
-//
-//    @Override
-//    public Sorts getSort() {
-//        return new MergeSort();
-//    }
 
     @Override
     public int[] runSort(int[] arry) {

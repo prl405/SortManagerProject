@@ -32,6 +32,12 @@
 
  Worst case performance: O(nlog(n))
 
+ ###### Binary Tree Sort
+The tree sort builds a binary tree and proceeds to traverse it placing the elements it comes across into an array. Due to the structure of the binary tree the order of the array is naturally formed in ascending order.
+
+ Worst case performance: O(n^2) unbalanced
+                         O(nlog(n)) balanced
+
  #### Logger
  The logger logs the program's events during runtime using log4j and stores them in the app.log file.
 
@@ -60,4 +66,4 @@
  ### Organizational Tools Used
 
  ##### GitHub Project Kanban Board
- Used to keep track of tasks and progress. 
+ Used to keep track of tasks and progress.

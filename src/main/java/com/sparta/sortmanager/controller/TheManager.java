@@ -20,7 +20,7 @@ public class TheManager {
         InputHandler theInputHandler = new InputHandler();
         Logger logger = Logger.getLogger("SortManager Log: ");
         PropertyConfigurator.configure("log4j.properties");
-        logger.info("Program initialized");
+        logger.warn("Program initialized");
 
 
 
@@ -45,7 +45,7 @@ public class TheManager {
 
             if (choice.equals("x")) {
                 UserPrompts.programExitingMessage();
-                logger.info("Program Terminated");
+                logger.warn("Program Terminated");
                 break;
             }
             else {
@@ -61,6 +61,7 @@ public class TheManager {
 
                 arrayUnsorted = ArrayGenerator.generateRandomArray(length);
                 arrayUnsorted2 = arrayUnsorted.clone();
+
                 sortTimer.startTimer();
                 theSort = SortFactory.getSortable(choice);
                 runTime = sortTimer.endTimer();
@@ -74,7 +75,7 @@ public class TheManager {
             logger.info("User Input = " + choice);
             if (choice.equals("x")) {
                 UserPrompts.programExitingMessage();
-                logger.info("Program Terminated");
+                logger.warn("Program Terminated");
                 break;
             }
         }

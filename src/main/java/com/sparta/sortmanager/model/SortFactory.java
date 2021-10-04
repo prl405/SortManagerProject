@@ -16,6 +16,9 @@ public class SortFactory {
         if(choice.equals("q")){
             theSorter = new QuickSort();
         }
+        if(choice.equals("bin")){
+            theSorter = new BinaryTreeSort();
+        }
         return theSorter;
     }
 
