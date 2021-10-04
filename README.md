@@ -56,3 +56,8 @@
 
  ###### Model-View-Controller (MVC)
  The program is separated into three main packages which contain their respective classes that correspond to the MVC design pattern.
+
+ ### Organizational Tools Used
+
+ ##### GitHub Project Kanban Board
+ Used to keep track of tasks and progress. 
